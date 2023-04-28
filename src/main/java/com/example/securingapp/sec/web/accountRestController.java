@@ -53,7 +53,7 @@ public class accountRestController {
         if(authToken!=null && authToken.startsWith("Bearer")){
             try{
                 String jwt = authToken.substring(7);
-                Algorithm algorithm = Algorithm.HMAC256("mySecret12345");
+                Algorithm algorithm = Algorithm.HMAC256("secret!@#$");
                 JWTVerifier jwtVerifier = JWT.require(algorithm).build();
                 DecodedJWT decodedJWT = jwtVerifier.verify(jwt);
                 String username = decodedJWT.getSubject();

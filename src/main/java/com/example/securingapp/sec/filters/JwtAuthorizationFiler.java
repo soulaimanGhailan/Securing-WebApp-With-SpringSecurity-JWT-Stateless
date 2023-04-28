@@ -28,7 +28,7 @@ public class JwtAuthorizationFiler extends OncePerRequestFilter {
             if(authorizationToken !=null && authorizationToken.startsWith("Bearer ")){
                 try{
                     String jwt = authorizationToken.substring(7);
-                    Algorithm algorithm = Algorithm.HMAC256("mySecret12345");
+                    Algorithm algorithm = Algorithm.HMAC256("secret!@#$");
                     JWTVerifier jwtVerifier = JWT.require(algorithm).build();
                     DecodedJWT decodedJWT = jwtVerifier.verify(jwt);
                     String username = decodedJWT.getSubject();
